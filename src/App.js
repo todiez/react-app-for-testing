@@ -24,11 +24,14 @@ function App() {
     //useState is a hook which rerenders the component on every state change
     // -->> changing the state inside use effect results in an infinite loop
     console.log("use effect ran");
-    setCounter(counter + 1);
+    //setCounter(counter + 1);
+
+    if (name === "Tobi") setName("Dora");
+    else setName("Tobi");
 
     // adding a dependency array ensures that it is just run the first time after the initial render
     //further, adding values to the array ensures rendering again only if the added values changes
-  }, [name]);
+  }, [counter]);
 
   return (
     <div className="App">
@@ -39,7 +42,6 @@ function App() {
       <p></p>
       <p></p>
       <p>{name}</p>
-      <button onClick={() => setName("Dora")}>Change Name</button>
     </div>
   );
 }
