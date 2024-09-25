@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
   const [counter, setCounter] = useState(0);
@@ -18,6 +18,13 @@ function App() {
     setCounter((count) => count - 1);
   };
 
+  useEffect(() => {
+    //use effect is a hook that runs a function on every render of the component, e.g. to fetch data
+    //useState is a hook which rerenders the component on every state change
+    console.log("use effect ran");
+  });
+
+
   return (
     <div className="App">
       <h1>Testing stuff</h1>
@@ -27,5 +34,10 @@ function App() {
     </div>
   );
 }
+
+//Props vs State:
+//State is handled(updated) inside the component and Props is handled(updated) outside and passed down into a component
+//state change triggers rerender of the component, props can't be changed inside component
+//props are just a variable to a function
 
 export default App;
